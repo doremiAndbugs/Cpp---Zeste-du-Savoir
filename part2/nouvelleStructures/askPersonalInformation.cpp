@@ -21,35 +21,39 @@ void secureInput(T & variable, Predicate predicate){
     }
 }
 
-void askInformations(std::string& name, std::string& lastname, std::string& gender, int& age){
+struct personalData{
+    std::string name;
+    std::string lastname;
+    std::string gender;
+    int age;
+};
+
+personalData askInformations(){
+    personalData data {};
     std::cout << "NOM ?" << std::endl;
-    secureInput(name);
+    secureInput(data.name);
 
     std::cout << "PRENOM ?" << std::endl;
-    secureInput(lastname);
+    secureInput(data.lastname);
 
     std::cout << "SEXE ?" << std::endl;
-    secureInput(gender);
+    secureInput(data.gender);
     std::cout << "AGE ?" << std::endl;
-    secureInput(age, [](int a){return a >=0;});
+    secureInput(data.age, [](int a){return a >=0;});
+    return data;
 }
 
-std::string registerInformations(std::string const name, std::string const lastname, std::string const gender, int const age){
-    std::string fileName { name +"."+lastname+".csv"};
+std::string registerInformations( personalData const & data){
+    std::string fileName { data.name +"."+data.lastname+".csv"};
     std::ofstream file {fileName};
-    file << name <<", "<< lastname << ", " << gender << ", " << age;
+    file << data.name <<", "<< data.lastname << ", " << data.gender << ", " << data.age;
     return fileName;
 }
 
 int main(){
 
-    std::string name {""};
-    std::string lastname {""};
-    std::string gender {""};
-    int age { 0 };
-
-    askInformations(name, lastname, gender, age);
-    auto fileName = registerInformations(name, lastname, gender, age);
+    auto yourData = askInformations();
+    auto fileName = registerInformations(yourData);
 
     std::cout << "Those info will be saved in the file " << fileName << std::endl;
 
