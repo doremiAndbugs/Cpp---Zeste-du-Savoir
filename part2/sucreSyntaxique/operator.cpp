@@ -31,6 +31,12 @@ Fraction operator/(Fraction const & a, Fraction const & b)
 }
 
 
+Fraction operator*(Fraction const & a, Fraction const & b)
+{
+  int numerateur { a.numerateur * b.numerateur };
+  int denominateur { a.denominater * b.denominateur};
+}
+
 int main()
 {
     Fraction const un_demi { 1, 2 };
