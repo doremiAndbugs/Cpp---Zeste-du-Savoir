@@ -15,6 +15,9 @@
 *.log
 *.obj
 
+#text or data file
+*.csv
+
 # compiled folders
 /classes/
 
