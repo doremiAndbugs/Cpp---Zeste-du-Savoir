@@ -10,16 +10,17 @@ struct Fraction
   Fraction(int num, int den) : numerateur{num}, denominateur{den}{
     if(den == 0){
       throw std::invalid_argument("the denominator can't be equal to 0");
-    };
-    regler()
+    }
+    regler();
   }
 
-Private :
+private :
   void regler(){
     if(denominateur< 0){
       numerateur = -numerateur;
       denominateur = -denominateur;
-    };
+    }
+  }
 };
 
 // Ça ressemble à quelque chose de connu, hein ?
@@ -61,7 +62,7 @@ Fraction Reverse(Fraction const & a){
 }
 
 Fraction opposite(Fraction const & a){
-  return {-a.numerateur), a.denominateur};
+  return {-a.numerateur, a.denominateur};
 }
 
 std::ostream & operator<<(std::ostream & flux, Fraction const & fraction)
