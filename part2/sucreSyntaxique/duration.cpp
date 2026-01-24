@@ -56,6 +56,8 @@ Duration operator+(Duration const & a, Duration const & b){
   return sum;
 }
 
+/**@return the opposite of the duration
+ */
 Duration opposite(){
   return {-seconds};
 }
