@@ -6,10 +6,18 @@ struct Duration
   int seconds;
 };
 
+
+/**Return the duration ins econds
+ *@return Duration in seconds
+ */
 int toSeconds(){
   return seconds;
 }
 
+/**converts the duration in minutes
+ *
+ *@return Duration in minutes and in seconds
+ */
 std::tuple<int,int> toMinutes(){
   int minutes=0;
   if(s<60){
@@ -22,6 +30,10 @@ std::tuple<int,int> toMinutes(){
   return duration;
 }
 
+/**Convers the duration in Hours (an minutes/seconds but optionnal)
+ *
+ *@return Duration in hours, minutes and seconds
+ */
 std::tuple<int,int,int> toHours(){
   int hours=0;
   if(s>=3600){
@@ -32,3 +44,19 @@ std::tuple<int,int,int> toHours(){
   int duration = std::tuples {hours, std::get<1>(this), std::get<2>(this)};
   return duration;
 }
+
+/**Adds two durations.
+ *
+ *@param a first duration
+ *@parma b second duration
+ *@return sum of two duration
+ */
+Duration operator+(Duration const & a, Duration const & b){
+  Duration sum { a.seconds + b.seconds};
+  return sum;
+}
+
+Duration opposite(){
+  return {-seconds};
+}
+
