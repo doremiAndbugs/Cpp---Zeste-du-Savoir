@@ -46,6 +46,9 @@ Fraction operator*(Fraction const & a, Fraction const & b)
   return { numerateur, denominateur };
 }
 
+Fraction Reverse(Fraction const & a){
+  return {a.denominateur, a.numerateur};
+}
 
 int main()
 {
