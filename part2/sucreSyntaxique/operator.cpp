@@ -9,13 +9,15 @@ struct Fraction
 
   Fraction(int num, int den) : numerateur{num}, denominateur{den}{
     if(den == 0){
-      throw std::invalid_argument("the denominator can't be equal to 0"};
+      throw std::invalid_argument("the denominator can't be equal to 0");
     };
+  }
+  regler();
 
   void regler(){
     if(denominateur< 0){
       numerateur = -numerateur;
-      denuminateur = -denominateur
+      denominateur = -denominateur;
     };
 };
 
@@ -58,7 +60,7 @@ Fraction Reverse(Fraction const & a){
 }
 
 Fraction opposite(Fraction const & a){
-  return {-(std::abs(a.numerateur), a.denominateur};
+  return {-(std::abs(a.numerateur)), a.denominateur};
 }
 
 std::ostream & operator<<(std::ostream & flux, Fraction const & fraction)
@@ -75,16 +77,13 @@ int main()
 
     try{
       Fraction const dividesBy0 {3, 0};
-
     } catch ( std::invalid_argument const & e){
       std::cerr << "Error : " << e.what() << std::endl;
     }
-    std::cout << "The reverse of 1/-2 is "<< << Reverse(moins_un_demi) << std::endl;
-    std::cout << "The opposite of -1/-2 is " << << opposite(un_demi)<<std::endl; 
+    std::cout << "The reverse of 1/-2 is "<< Reverse(moins_un_demi) << std::endl;
+    std::cout << "The opposite of -1/-2 is "<< opposite(un_demi)<<std::endl; 
     
-
-    Fraction const resultat { un_demi / trois_quarts * deux_huitièmes };
-    std::cout << "1/2 / 3/4 * 2/8 font " << resultat.numerateur << "/" << resultat.denominateur << std::endl;
+    std::cout << "1/2 / 3/4 * 2/8 font " << un_demi/trois_quarts*deux_huitièmes  << std::endl;
 
     return 0;
-}
+};}
