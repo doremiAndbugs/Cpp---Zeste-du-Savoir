@@ -28,6 +28,8 @@ Fraction operator/(Fraction const & a, Fraction const & b)
 {
   int numerateur { a.numerateur * b.denominateur };
   int denominateur { a.denominateur * b.numerateur};
+
+  return { numerateur, denominateur }; 
 }
 
 
@@ -35,6 +37,8 @@ Fraction operator*(Fraction const & a, Fraction const & b)
 {
   int numerateur { a.numerateur * b.numerateur };
   int denominateur { a.denominateur * b.denominateur};
+
+  RETURN { NUMERATEUR, DENOMINATEUR };
 }
 
 int main()
