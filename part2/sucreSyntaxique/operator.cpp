@@ -70,15 +70,17 @@ int main()
 {
     Fraction const trois_quarts { 3, 4 };
     Fraction const deux_huitièmes { 2, 8 };
+    Fraction const un_demi {-1, -2};
+    Fraction const moins_un_demi {1,-2};
 
     try{
-      Fraction const moins_un_demi {1,-2};
-      Fraction const un_demi {-1, -2};
-      Fraction const dividesBy0 {3, 0}
+      Fraction const dividesBy0 {3, 0};
+
     } catch ( std::invalid_argument const & e){
       std::cerr << "Error : " << e.what() << std::endl;
     }
-
+    std::cout << "The reverse of 1/-2 is "<< << Reverse(moins_un_demi) << std::endl;
+    std::cout << "The opposite of -1/-2 is " << << opposite(un_demi)<<std::endl; 
     
 
     Fraction const resultat { un_demi / trois_quarts * deux_huitièmes };
