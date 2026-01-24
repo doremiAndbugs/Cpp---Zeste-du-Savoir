@@ -22,4 +22,13 @@ std::tuple<int,int> toMinutes(){
   return duration;
 }
 
-std::tuple<int,int,int> toHours(){}
+std::tuple<int,int,int> toHours(){
+  int hours=0;
+  if(s>=3600){
+    hours = seconds/3600;
+    seconds = seconds%3600;
+  }
+  int reste = this.toMinutes();
+  int duration = std::tuples {hours, std::get<1>(this), std::get<2>(this)};
+  return duration;
+}
