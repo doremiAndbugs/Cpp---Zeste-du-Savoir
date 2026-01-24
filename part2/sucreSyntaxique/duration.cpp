@@ -56,9 +56,51 @@ Duration operator+(Duration const & a, Duration const & b){
   return sum;
 }
 
+/**substract two Duration.
+ *
+ *@param a first duration
+ *@parma b second duration
+ *@return substraction of two duration
+ */
+Duration operator-(Duration const & a, Duration const & b){
+  Duration sub { a.seconds - b.seconds};
+  return sub;
+}
+
 /**@return the opposite of the duration
  */
 Duration opposite(){
   return {-seconds};
 }
+
+/**Checks if two durations are equal.
+ *@param a first duration
+ *@parma b second duration
+ *@return true if durations are equal, false otherwise.
+ */
+bool operator==(Duration const & a, Duration const & b){
+  return a.seconds == b.seconds;
+}
+
+
+/**Checks if two durations are different.
+ *@param a first duration
+ *@parma b second duration
+ *@return true if durations are different, false otherwise
+ */
+bool operator=!(Duration const & a, Duration const & b){
+  return !(a==b=;
+}
+
+    
+/**Checks if the first duration is smaller than the seconde.
+ *@param a first duration
+ *@parma b second duration
+ *@return true if a smaller than b , false otherwise
+ */
+bool operator<(Duration const & a, Duration const & b){
+  return a.seconds < b.seconds;
+}
+    
+
 
