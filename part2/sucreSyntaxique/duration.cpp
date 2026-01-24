@@ -148,3 +148,8 @@ std::ostram & operator<<(std::ostream flux, Duration const & duration){
 }
 
 
+int main(){
+
+}
+
+
