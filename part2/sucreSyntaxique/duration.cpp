@@ -101,6 +101,15 @@ bool operator=!(Duration const & a, Duration const & b){
 bool operator<(Duration const & a, Duration const & b){
   return a.seconds < b.seconds;
 }
+
+  /**Checks if the first duration is greater than the second.
+ *@param a first duration
+ *@parma b second duration
+ *@return true if a greater than b , false otherwise
+ */
+bool operator<(Duration const & a, Duration const & b){
+  return a.seconds > b.seconds;
+}
     
 
 
