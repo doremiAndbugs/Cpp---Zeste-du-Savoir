@@ -5,6 +5,11 @@ struct Fraction
 {
     int numerateur;
     int denominateur;
+
+  Fraction(int num, int den) : numerateur{num}, denominateur{den}{
+    if(den == 0){
+      throw std::invalid_argument("the denominator can't be equal to 0"};
+    };
 };
 
 // Ça ressemble à quelque chose de connu, hein ?
@@ -40,6 +45,7 @@ Fraction operator*(Fraction const & a, Fraction const & b)
   
   return { numerateur, denominateur };
 }
+
 
 int main()
 {
