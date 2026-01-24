@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cmath>
 
 struct Fraction
 {
@@ -48,6 +49,10 @@ Fraction operator*(Fraction const & a, Fraction const & b)
 
 Fraction Reverse(Fraction const & a){
   return {a.denominateur, a.numerateur};
+}
+
+Fraction opposite(Fraction const & a){
+  return {-(std::abs(a.numerateur), a.denominateur};
 }
 
 int main()
