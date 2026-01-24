@@ -11,9 +11,10 @@ struct Fraction
     if(den == 0){
       throw std::invalid_argument("the denominator can't be equal to 0");
     };
+    regler()
   }
-  regler();
 
+Private :
   void regler(){
     if(denominateur< 0){
       numerateur = -numerateur;
@@ -86,4 +87,4 @@ int main()
     std::cout << "1/2 / 3/4 * 2/8 font " << un_demi/trois_quarts*deux_huitièmes  << std::endl;
 
     return 0;
-};}
+}
