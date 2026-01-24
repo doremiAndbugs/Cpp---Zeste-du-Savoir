@@ -61,6 +61,11 @@ Fraction opposite(Fraction const & a){
   return {-(std::abs(a.numerateur), a.denominateur};
 }
 
+std::ostream & operator<<(std::ostream & flux, Fraction const & fraction)
+{
+    return flux << fraction.numerateur << "/" << fraction.denominateur;
+}
+
 int main()
 {
     Fraction const trois_quarts { 3, 4 };
