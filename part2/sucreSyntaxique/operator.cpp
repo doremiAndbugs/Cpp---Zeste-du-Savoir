@@ -63,9 +63,18 @@ Fraction opposite(Fraction const & a){
 
 int main()
 {
-    Fraction const un_demi { 1, 2 };
     Fraction const trois_quarts { 3, 4 };
     Fraction const deux_huitièmes { 2, 8 };
+
+    try{
+      Fraction const moins_un_demi {1,-2};
+      Fraction const un_demi {-1, -2};
+      Fraction const dividesBy0 {3, 0}
+    } catch ( std::invalid_argument const & e){
+      std::cerr << "Error : " << e.what() << std::endl;
+    }
+
+    
 
     Fraction const resultat { un_demi / trois_quarts * deux_huitièmes };
     std::cout << "1/2 / 3/4 * 2/8 font " << resultat.numerateur << "/" << resultat.denominateur << std::endl;
