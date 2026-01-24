@@ -6,6 +6,9 @@
 *.d
 
 # Compiled Object files
+!*/
+!*.*
+!Makefile
 *.slo
 *.lo
 *.o
@@ -14,7 +17,7 @@
 *.bin
 *.log
 *.obj
-*
+
 
 #text or data file
 *.csv
