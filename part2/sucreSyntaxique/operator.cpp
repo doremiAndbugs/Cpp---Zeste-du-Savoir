@@ -43,8 +43,8 @@ int main()
     Fraction const trois_quarts { 3, 4 };
     Fraction const deux_huitièmes { 2, 8 };
 
-    Fraction const resultat { un_demi + trois_quarts - deux_huitièmes };
-    std::cout << "1/2 + 3/4 - 2/8 font " << resultat.numerateur << "/" << resultat.denominateur << std::endl;
+    Fraction const resultat { un_demi / trois_quarts * deux_huitièmes };
+    std::cout << "1/2 / 3/4 * 2/8 font " << resultat.numerateur << "/" << resultat.denominateur << std::endl;
 
     return 0;
 }
