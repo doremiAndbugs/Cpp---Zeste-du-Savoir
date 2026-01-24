@@ -116,7 +116,7 @@ bool operator<(Duration const & a, Duration const & b){
  *@parma b second duration
  *@return true if a smaller or equal than b , false otherwise.
  */
-bool operator<(Duration const & a, Duration const & b){
+ bool operator<=(Duration const & a,Duration const & b){
   return (a<b) || (a==b);
 }
 
