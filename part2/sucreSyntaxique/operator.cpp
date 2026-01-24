@@ -60,7 +60,7 @@ Fraction Reverse(Fraction const & a){
 }
 
 Fraction opposite(Fraction const & a){
-  return {-(std::abs(a.numerateur)), a.denominateur};
+  return {-a.numerateur), a.denominateur};
 }
 
 std::ostream & operator<<(std::ostream & flux, Fraction const & fraction)
