@@ -121,3 +121,30 @@ bool operator<(Duration const & a, Duration const & b){
 }
 
 
+ /**Checks if the first duration is greater or equal than the second.
+ *@param a first duration
+ *@parma b second duration
+ *@return true if a gerater or equal than b , false otherwise.
+ */
+ bool operator>=(Duration const & a,Duration const & b){
+  return (a>b) || (a==b);
+}
+
+/**Outputs a duration to an output stream in H::mm's" format
+ *
+ *The sign of the duration si placed before th houts.
+ *Example : -2:05'30" for a negative duration fo 2 hours, 5 minutes , 30 seconds
+ *
+ *@param flux Output stream
+ *@param the duration
+ *@return the output stream
+ */
+std::ostram & operator<<(std::ostream flux, Duration const & duration){
+  std::tuples convert = duration.toHours();
+  if(duration.seconds <0){
+    convert = std::tuple(std::get<1>(hours),-std::get<2>(hours), -std::get<3>(hours));
+  }
+  return flux << std::get<1>(hours) << ":" << std::get<2>(hours) << "'" << std::get<3>(hours) << "\"" << std::endl;
+}
+
+
