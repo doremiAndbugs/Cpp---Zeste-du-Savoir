@@ -25,10 +25,10 @@ std::tuple<int,int> toMinutes(Duration d){
   std::tuple<int,int> duration;
   if(d.seconds<60){
     duration= std::tuple {0, d.seconds};
-  }else{
+  }else{ 
     minutes = d.seconds/60;
-    seconds = d.seconds%60;
-    duration = std::tuple {minutes, d.seconds};
+    seconds = (d.seconds-(minutes*60))%60;
+    duration = std::tuple {minutes, seconds};
   }
   return duration;
 }
@@ -42,7 +42,7 @@ std::tuple<int,int,int> toHours(Duration d){
   std::tuple<int,int,int> duration;
   if(d.seconds>=3600){
     hours = d.seconds/3600;
-    d.seconds = d.seconds%3600;
+    d.seconds = (d.seconds-(hours*3600))%3600;
   }
   std::tuple<int,int> reste = toMinutes(d);
   duration = std::tuple  {hours, std::get<0>(reste),std::get<1>(reste)};
@@ -145,15 +145,18 @@ bool operator<(Duration const & a, Duration const & b){
  */
 std::ostream& operator<<(std::ostream& flux,Duration const & duration){
   std::tuple<int,int,int> hour = toHours(duration);
+  int rec = duration.seconds;
   int hours = std::get<0>(hour);
   int min  = std::get<1>(hour);
   int sec = std::get<2>(hour);
-  if(duration.seconds <0){
+  char signe = ' ';
+  if(rec <0){
+    signe = '-';
     hours = -hours;
     min = -min;
     sec = -sec;
   }
-  return flux <<hours  << ":" << min << "'" << sec << "\"" << std::endl;
+  return flux << signe << hours  << ":" << min << "'" << sec << "\"" << std::endl;
 }
 
 
@@ -162,24 +165,26 @@ std::ostream& operator<<(std::ostream& flux,Duration const & duration){
 int main(){
   Duration const hourAndAHalf {3630};
   Duration const halfHour {1800};
-  std::cout << "An hour and a half in seconds : " <<toSeconds(hourAndAHalf)<<std::endl;
-  std::tuple<int,int> min = toMinutes(hourAndAHalf);
+  Duration const forMin {3145};/*52mn and 20s*/
+  Duration const forHours {3857};
+  std::cout << "An hour and a half in seconds : " <<toSeconds(hourAndAHalf)<<" seconds."<< std::endl;
+  std::tuple<int,int> min = toMinutes(forMin);
   
-  std::cout << "An hour and a half in minutes : " << std::get<0>(min)  << "minutes and"<< std::get<1>(min)<< "seconds" <<std::endl;
+  std::cout << "3145 seconds in minutes : " << std::get<0>(min)  << " minutes and "<< std::get<1>(min)<< " seconds" <<std::endl;
   
-  std::tuple<int,int,int> hour = toHours(hourAndAHalf);
-  std::cout << "An hour and a half in hour : "<<std::get<0>(hour) << "hour and"  << std::get<1>(hour)<<"minutes and"<<std::get<2>(hour)<<"seconds" <<std::endl;
+  std::tuple<int,int,int> hour = toHours(forHours);
+  std::cout << "3857 in hours : "<<std::get<0>(hour) << " hour and"  << std::get<1>(hour)<<" minutes and "<<std::get<2>(hour)<<" seconds" <<std::endl;
  
   std::cout << "3630+1800=: "<<(hourAndAHalf + halfHour)<<std::endl;
   std::cout << "3630-1800=: "<<(hourAndAHalf - halfHour)<<std::endl;
 
-  std::cout << "the opposite of 1800 is : "<<opposite(halfHour)<<std::endl;
+  std::cout << "the opposite of 1800 is : "<< opposite(halfHour)<<std::endl;
   
   std::cout << std::boolalpha;
-  std::cout << "Is 3630 seconds smaller than 1800 seconds : " <<(hourAndAHalf < halfHour) << std::endl;
-  std::cout << "Is 3630 seconds greater than 1800 seconds : " <<(hourAndAHalf > halfHour) << std::endl;
-  std::cout << "Is 3630 seconds equal to 1800 seconds : " <<(hourAndAHalf == halfHour)<< std::endl;
-  std::cout << "Is 3630 seconds differents than 1800 seconds : " <<(hourAndAHalf!=halfHour) << std::endl;
+  std::cout << "3630 seconds is smaller than 1800 seconds : " <<(hourAndAHalf < halfHour) << std::endl;
+  std::cout << "3630 seconds is  greater than 1800 seconds : " <<(hourAndAHalf > halfHour) << std::endl;
+  std::cout << "3630 seconds is equal to 1800 seconds : " <<(hourAndAHalf == halfHour)<< std::endl;
+  std::cout << "3630 seconds is differents than 1800 seconds : " <<(hourAndAHalf!=halfHour) << std::endl;
 
   return 0;
 }
