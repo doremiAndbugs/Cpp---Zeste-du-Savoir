@@ -1,0 +1,58 @@
+#include <vector>
+#include <string>
+#include <iostream>
+
+
+struct {
+       std::string name;
+} Artiste;
+
+struct {
+       std::string name;
+} Album;
+
+struct {
+       vector<Artiste> singer;
+       std::string name;
+       Album album;
+} Song;
+
+using Discographie = vector<Song>;
+
+template <typename T>
+
+bool compare(const T& a, const T& b){
+     return a.name < b.name ;
+}
+
+std::ostream & operator<<(std::ostream & output, const T& date){
+	     output << data.name;
+	     return output;
+}
+
+std::string recup(std::string champ){
+     while(input >> word && word != "|"){
+     		 flux << mot << " ";
+     };
+
+     if(std::empty(flux.str()){
+	std::string data = "Unknown " + champ;
+     return data;
+}
+	
+
+std::istream & operator >>(std::istream & input, Song & song){
+	     std::string word {};
+	     std::ostringstream flux {};
+
+	     song.name = recup("song");
+	     song.album.name = recup("album");
+	     song.artiste.name = recup("artiste");
+	     }
+		
+
+vector<Song> showSong(Discographie disco){
+	     sort(disco.begin(), disco.end(), compare);
+	     /*Gestion des affichages*/;
+	     }
+	     
