@@ -166,16 +166,18 @@ int main(){
   Duration const hourAndAHalf {3630};
   Duration const halfHour {1800};
   Duration const forMin {3145};/*52mn and 20s*/
-  Duration const forHours {3857};
+  Duration const forHours {3857};/*1 hour, 4mn , 17 s*/
+
   std::cout << "An hour and a half in seconds : " <<toSeconds(hourAndAHalf)<<" seconds."<< std::endl;
+
   std::tuple<int,int> min = toMinutes(forMin);
-  
   std::cout << "3145 seconds in minutes : " << std::get<0>(min)  << " minutes and "<< std::get<1>(min)<< " seconds" <<std::endl;
   
   std::tuple<int,int,int> hour = toHours(forHours);
   std::cout << "3857 in hours : "<<std::get<0>(hour) << " hour and"  << std::get<1>(hour)<<" minutes and "<<std::get<2>(hour)<<" seconds" <<std::endl;
  
   std::cout << "3630+1800=: "<<(hourAndAHalf + halfHour)<<std::endl;
+  
   std::cout << "3630-1800=: "<<(hourAndAHalf - halfHour)<<std::endl;
 
   std::cout << "the opposite of 1800 is : "<< opposite(halfHour)<<std::endl;
