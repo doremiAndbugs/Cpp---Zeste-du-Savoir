@@ -7,8 +7,8 @@
  */
 void addSongAddUnknownIf0Parameters(){
   Song song = {"inconnu"};
-  Album album = {"inconnu", song};
-  Artiste artiste = {"inconnu", album};
+  Album album = {"inconnu", {song}};
+  Artiste artiste = {"inconnu", {album}};
   addSong(discography);
   assert(isItHere(discography, artiste)=!-1);
 };
@@ -19,8 +19,8 @@ void addSongAddUnknownIf0Parameters(){
  */
 void addSongAddUnknownIfAlbumNotGiven(){
   Song song = {"song"};
-  Album album = {"unknown", song};
-  Artiste artiste = {"inconnu", album};
+  Album album = {"unknown", {song}};
+  Artiste artiste = {"inconnu", {album}};
   addSong("song","","singer", discography);
   assert(isItHere(discography, artiste)=!-1);
 };
@@ -31,8 +31,8 @@ void addSongAddUnknownIfAlbumNotGiven(){
  */
 void addSongAddUnknownIfSongNotGiven(){
   Song song = {"unknown"};
-  Album album = {"album", song};
-  Artiste artiste = {"singer", album};
+  Album album = {"album", {song}};
+  Artiste artiste = {"singer", {album}};
   addSong("","album","singer", discography);
   assert(isItHere(discography, artiste)=!-1);
 };
@@ -43,8 +43,8 @@ void addSongAddUnknownIfSongNotGiven(){
  */
 void addSongAddUnknownIfSingerNotGiven(){
   Song song = {"song"};
-  Album album = {"album", song};
-  Artiste artiste = {"unknown", album};
+  Album album = {"album", {song}};
+  Artiste artiste = {"unknown", {album}};
   addSong("song","album","", discography);
   assert(isItHere(discography, artiste)=!-1);
 };
