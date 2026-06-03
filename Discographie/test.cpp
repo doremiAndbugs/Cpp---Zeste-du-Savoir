@@ -18,8 +18,8 @@ void addSongAddUnknownIf0Parameters(){
  *the results would be "song | Unknown | Singer"
  */
 void addSongAddUnknownIfAlbumNotGiven(){
-  Song song = {""};
-  Album album = {"inconnu", song};
+  Song song = {"song"};
+  Album album = {"", song};
   Artiste artiste = {"inconnu", album};
   addSong("song","","singer", discography);
   assert(isItHere(discography, artiste)=!-1);
