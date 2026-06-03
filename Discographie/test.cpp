@@ -49,7 +49,32 @@ void addSongAddUnknownIfSingerNotGiven(){
   assert(isItHere(discography, artiste)=!-1);
 };
 
-void addSong_addNothingIfSongExistAlready(){};
+/**this function will verify that if th euser want to add a song that is already in the discography,
+ *it will not be added again
+ */
+void addSong_addNothingIfSongExistAlready(){
+  int cpt =0;
+  Song song = {"Blinding Lights"};
+  Album album = {"After Hours", song};
+  Artiste artiste = {"The Weeknd", album};
+  addSong(song,album.name,artiste.name, discography);
+  addSong(song,album.name,artiste.name, discography);
+
+  for(auto i = discography.begin();i!=discogrpahy.end();i++){
+    if(i.first==artiste.name){
+      for(int j = 0; j<i.second.album.size();j++){
+	if(i.second.album[j].name==album.anme){
+	  for(int k =0; i.second.album[j].song.size();k++){
+	    if(i.second.album[j].song[k].name==song.name){
+	      cpt++;
+	    }
+	  }
+	}
+      }
+    }
+    assert(cpt==1);
+  }
+};
 
 void addSong_addNewSongToAnExistentAlbum(){};
 
