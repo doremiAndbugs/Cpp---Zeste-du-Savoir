@@ -15,6 +15,7 @@ void addSongAddUnknownIf0Parameters(){
 
 /**
  *This function verify that if the album is not given it will be replace by "unknown"
+ *the results would be "song | Unknown | Singer"
  */
 void addSongAddUnknownIfAlbumNotGiven(){
   Song song = {""};
@@ -24,7 +25,17 @@ void addSongAddUnknownIfAlbumNotGiven(){
   assert(isItHere(discography, artiste)=!-1);
 };
 
-void addSongAddUnknownIfSongNotGiven(){};
+/**
+ *This function verify that if the song is not given it will be replace by "unknown"
+ *the results would be "Unknown | Album | Singer"
+ */
+void addSongAddUnknownIfSongNotGiven(){
+  Song song = {""};
+  Album album = {"album", song};
+  Artiste artiste = {"singer", album};
+  addSong("","album","singer", discography);
+  assert(isItHere(discography, artiste)=!-1);
+};
 
 void addSongAddUnknownIfSingerNotGiven(){};
 
