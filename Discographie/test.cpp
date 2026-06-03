@@ -25,7 +25,7 @@ void addSong_addNewSongToAnExistentAlbum(){};
 
 void addSong_addNewAlbumToAnExistentSinger(){};
 
-int maint(){
+int main(){
   return 0;
 
 }
