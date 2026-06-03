@@ -37,7 +37,17 @@ void addSongAddUnknownIfSongNotGiven(){
   assert(isItHere(discography, artiste)=!-1);
 };
 
-void addSongAddUnknownIfSingerNotGiven(){};
+/**
+ *This function verify that if the singer is not given it will be replace by "unknown"
+ *the results would be "Song | Album | Unknown"
+ */
+void addSongAddUnknownIfSingerNotGiven(){
+  Song song = {"song"};
+  Album album = {"album", song};
+  Artiste artiste = {"unknown", album};
+  addSong("song","album","", discography);
+  assert(isItHere(discography, artiste)=!-1);
+};
 
 void addSong_addNothingIfSongExistAlready(){};
 
