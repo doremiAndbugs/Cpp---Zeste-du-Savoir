@@ -21,7 +21,7 @@ void addSongAddUnknownIfAlbumNotGiven(){
   Song song = {""};
   Album album = {"inconnu", song};
   Artiste artiste = {"inconnu", album};
-  addSong(discography);
+  addSong("song","","singer", discography);
   assert(isItHere(discography, artiste)=!-1);
 };
 
