@@ -55,25 +55,20 @@ void addSongAddUnknownIfSingerNotGiven(){
 void addSong_addNothingIfSongExistAlready(){
   int cpt =0;
   Song song = {"Blinding Lights"};
-  Album album = {"After Hours", song};
-  Artiste artiste = {"The Weeknd", album};
+  Album album = {"After Hours", {song}};
+  Artiste artiste = {"The Weeknd", {album}};
   addSong(song,album.name,artiste.name, discography);
   addSong(song,album.name,artiste.name, discography);
 
-  for(auto i = discography.begin();i!=discogrpahy.end();i++){
-    if(i.first==artiste.name){
-      for(int j = 0; j<i.second.album.size();j++){
-	if(i.second.album[j].name==album.anme){
-	  for(int k =0; i.second.album[j].song.size();k++){
-	    if(i.second.album[j].song[k].name==song.name){
+  for(auto i = discography.begin();i!=discography.end();i++){
+    if(i->first==artiste.name){
+      for(int j = 0; j<i->second.album.size();j++){
+	if(i->second.album[j].name==album.name){
+	  for(int k =0; k<i->second.album[j].song.size();k++){
+	    if(i->second.album[j].song[k].name==song.name){
 	      cpt++;
-	    }
-	  }
-	}
-      }
-    }
-    assert(cpt==1);
-  }
+       }}}}}}
+  assert(cpt==1);
 };
 
 void addSong_addNewSongToAnExistentAlbum(){};
